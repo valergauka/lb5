@@ -1,0 +1,51 @@
+﻿@page
+@model lb5.Pages.Abonents.IndexModel
+@{
+    ViewData["Title"] = "Abonents";
+}
+<h1>Abonents</h1>
+<a asp-page="Create" class="btn btn-success">Create abonent</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+       @foreach(var abonent in Model.Abonents)
+        {
+            <tr>
+                <th scope="row">
+                    @abonent.FirstName
+                </th>
+                <td>
+                    @abonent.LastName
+                </td>
+                <td>
+                    @abonent.SurName
+                </td>
+                <td>
+                    @abonent.Address
+                </td>
+                <td>
+                    @abonent.PhoneNumber
+                </td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@abonent.Id" class="btn btn-info">Edit abonent</a>
+                </td>
+                <td>
+                    <a asp-page="Delete" asp-route-id="@abonent.Id" class="btn btn-danger">Delete abonent</a>
+                </td>
+            </tr>
+        }
+  </tbody>
+</table>
+
+
+

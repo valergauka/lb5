@@ -1,0 +1,41 @@
+﻿@page
+@model lb5.Pages.Cities.IndexModel
+@{
+    ViewData["Title"] = "Cities";
+}
+
+<h1>Cities</h1>
+<a asp-page="Create" class="btn btn-success">Create city</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Code</th>
+      <th scope="col">Tariff</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+       @foreach(var city in Model.Cities)
+        {
+            <tr>
+                <th scope="row">
+                    @city.Name
+                </th>
+                <td>
+                    @city.Code
+                </td>
+                <td>
+                    @city.Tariff
+                </td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@city.Id" class="btn btn-info">Edit city</a>
+                </td>
+                <td>
+                    <a asp-page="Delete" asp-route-id="@city.Id" class="btn btn-danger">Delete city</a>
+                </td>
+            </tr>
+        }
+  </tbody>
+</table>

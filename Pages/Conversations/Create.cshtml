@@ -1,0 +1,40 @@
+﻿@page
+@model lb5.Pages.Conversations.CreateModel
+<h1>Add new conversation</h1>
+<form method="post">
+  <div class="form-group row">
+	  <label>Abonent</label>
+	  <div class="col-sm-8">
+		  <select asp-for="Conversation.AbonentId" asp-items="@Model.AbonentList">
+			<option>Choose abonent</option>
+		  </select>
+		  <span asp-validation-for="Conversation.AbonentId"></span>
+	  </div>
+  </div>
+  <div class="form-group row">
+		<label>City</label>
+		<div class="col-sm-8">
+			<select asp-for="Conversation.CityId" asp-items="@Model.CityList">
+				<option>Choose city</option>
+			</select>
+			<span asp-validation-for="Conversation.CityId"></span>
+		</div>
+  </div>
+   <div class="form-group row">
+		<label>DateConversation</label>
+		<div class="col-sm-8">
+			<input asp-for="Conversation.DateConversation"/>
+			<span asp-validation-for="Conversation.DateConversation"></span>
+		</div>
+  </div>
+  <div class="form-group row">
+		<label>Duration</label>
+		<div class="col-sm-8">
+			<input asp-for="Conversation.Duration"/>
+			<span asp-validation-for="Conversation.Duration"></span>
+		</div>
+  </div>
+  <div class="col-sm-8 pt-2">
+	  <button type="submit">Add conversation</button>
+  </div>
+</form>

@@ -1,0 +1,40 @@
+﻿@page
+@model lb5.Pages.Conversations.IndexModel
+@{
+    ViewData["Title"] = "Conversations";
+}
+<h1>Conversations</h1>
+<a asp-page="Create" class="btn btn-success">Create conversation</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Abonent</th>
+      <th scope="col">City</th>
+      <th scope="col">DateConversation</th>
+      <th scope="col">Duration</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach(var conversation in Model.Conversations)
+        {
+            <tr>
+                <th scope="row">
+                    @conversation.Abonent.FirstName
+                </th>
+                <td>
+                    @conversation.City.Name
+                </td>
+                <td>
+                    @conversation.DateConversation
+                </td>
+                <td>
+                    @conversation.Duration
+                </td>
+                <td>
+                    <a asp-page="Delete" asp-route-id="@conversation.Id" class="btn btn-danger">Delete conversation</a>
+                </td>
+            </tr>
+        }
+  </tbody>
+</table>
